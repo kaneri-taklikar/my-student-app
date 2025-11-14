@@ -1,0 +1,59 @@
+JENKINSFILE IN DECLALATIVE PIPRLINe
+pipeline {
+     agent any { labels : slave1 }
+
+     stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/<your-username>/jenkins-pipeline-demo.git'
+            }
+        }
+
+          stage ('Build') {
+             steps {
+                 echo "building the project..."
+           }
+       }
+     stage('TEST') {
+         steps {
+            echo "Running tests...'
+          }
+       }
+     stage('deploy') {
+         steps {
+             echo 'DEPLOYING application..'
+          }
+       }
+    }
+}
+
+
+
+
+
+project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://m>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.jdevs</groupId>
+  <artifactId>studentapp</artifactId>
+  <version>2.2-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <build>
+    <extensions>
+    <extension>
+      <groupId>io.packagecloud.maven.wagon</groupId>
+      <artifactId>maven-packagecloud-wagon</artifactId>
+      <version>0.0.6</version>
+    </extension>
+  </extensions>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+                 
